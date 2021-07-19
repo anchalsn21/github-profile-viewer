@@ -1,0 +1,164 @@
+.login__section {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard__page {
+  /* background-color: lightgrey; */
+  height: 100%;
+}
+
+.dashboard__appbar {
+  background-color: #24292e;
+}
+
+.main__container {
+  display: flex;
+  padding: 40px;
+}
+
+.left__pane {
+  width: 25%;
+}
+
+.right__pane {
+  width: 75%;
+}
+
+.profile__image__container img {
+  width: 200px;
+  height: 200px;
+}
+
+.profile__organisation .logo img {
+  width: 25px;
+  height: 25px;
+}
+
+/* .search input {
+  width: 70%;
+} */
+
+.all__repos__container {
+  margin-top: 30px;
+}
+
+.first__row {
+  display: flex;
+  flex: 1 2;
+}
+
+.description__row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.second__row {
+  margin-top: 10px;
+}
+
+.bio {
+  width: 75%;
+}
+
+.profile__user__details {
+  padding: 10px;
+}
+
+.profile__container .name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+.profile__container .bio {
+  margin-top: 5px;
+}
+
+.profile__container .location {
+  margin-top: 5px;
+}
+
+.profile__container .username {
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.first__row a {
+  color: #0d6efd;
+  text-decoration: none;
+  font-size: 20px;
+}
+.first__row .repo__visibility {
+  font-size: 20px;
+  margin-left: 100px;
+}
+
+.second__row span:not(:first-child) {
+  margin-left: 15px;
+}
+
+.all__repos {
+  padding-left: 20px;
+}
+
+.second__row a {
+  text-decoration: none;
+}
+.single__repo__card {
+  border-bottom: solid 1px #eee;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+.profile__stats {
+  padding: 10px;
+}
+
+svg {
+  margin-left: 4px;
+}
+
+.follower__card {
+  border-bottom: 1px solid #eee;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.follower__card img {
+  width: 75px;
+  height: 55px;
+}
+.follower__card span {
+  padding: 15px;
+  font-size: large;
+  font-weight: 600;
+}
+
+.cntr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.mt-100 {
+  margin-top: 100px;
+}
+@media only screen and (max-width: 850px) {
+  .main__container {
+    flex-direction: column;
+  }
+  p {
+    word-break: break-all;
+  }
+  .left__pane {
+    width: 100%;
+  }
+  .right__pane {
+    width: 100%;
+  }
+}
