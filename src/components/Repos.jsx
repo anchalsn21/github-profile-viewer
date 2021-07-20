@@ -4,6 +4,42 @@ import { faStar, faCodeBranch } from "@fortawesome/free-solid-svg-icons";
 import { compareAsc, format, formatDistance } from "date-fns";
 import { makeStyles } from "@material-ui/core/styles";
 import { TextField, Button } from "@material-ui/core";
+import { FixedSizeList as List } from "react-window";
+
+const SingleRepo = ({ repo }) => {
+  return (
+    <div key={repo.name} className="single__repo__card">
+      <div className="first__row">
+        <a href={repo?.html_url}>
+          <span className="repo__name">{repo?.name}</span>
+        </a>
+      </div>
+      <div className="description__row">
+        <p>{repo?.description}</p>
+      </div>
+      <div className="second__row">
+        <span className="repo__language">{repo?.language}</span>
+        <span className="repo__last__update">
+          {repo?.stargazers_count}
+          <FontAwesomeIcon icon={faStar} />
+        </span>
+        <span>
+          <a href={repo?.forks_url}>
+            {" "}
+            {repo?.forks_count}
+            <FontAwesomeIcon icon={faCodeBranch} />
+          </a>{" "}
+        </span>
+        <span>
+          {formatDistance(new Date(repo?.updated_at), new Date(), {
+            addSuffix: true,
+          })}
+        </span>
+      </div>
+    </div>
+  );
+};
+
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -21,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
 function Repos({ repos }) {
   const classes = useStyles();
   const [search, setSearch] = useState("");
+  const getItemSize = () => 5;
 
   const filterSearch = (r) => r.filter((k) => k.name.includes(search));
   return (
@@ -45,35 +82,7 @@ function Repos({ repos }) {
           ""
         )}
         {filterSearch(repos).map((repo, index) => (
-          <div key={index} className="single__repo__card">
-            <div className="first__row">
-              <a href={repo?.html_url}>
-                <span className="repo__name">{repo?.name}</span>
-              </a>
-            </div>
-            <div className="description__row">
-              <p>{repo?.description}</p>
-            </div>
-            <div className="second__row">
-              <span className="repo__language">{repo?.language}</span>
-              <span className="repo__last__update">
-                {repo?.stargazers_count}
-                <FontAwesomeIcon icon={faStar} />
-              </span>
-              <span>
-                <a href={repo?.forks_url}>
-                  {" "}
-                  {repo?.forks_count}
-                  <FontAwesomeIcon icon={faCodeBranch} />
-                </a>{" "}
-              </span>
-              <span>
-                {formatDistance(new Date(repo?.updated_at), new Date(), {
-                  addSuffix: true,
-                })}
-              </span>
-            </div>
-          </div>
+          <SingleRepo key={index} repo={repo} />
         ))}
       </div>
     </div>
